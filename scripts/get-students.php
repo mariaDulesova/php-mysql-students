@@ -1,8 +1,14 @@
 <?php 
     require_once __DIR__ . "/database.php";
 
-    $sql = "
-        SELECT `students`.`registration_number`, `students`.`enrolment_date`,`students`.`surname`, `students`.`name`,`students`.`email`
+    $sql = 
+        "SELECT 
+            `students`.`id`, 
+            `students`.`registration_number`, 
+            `students`.`enrolment_date`,
+            `students`.`surname`,
+            `students`.`name`,
+            `students`.`email`
         FROM `students`
         INNER JOIN `degrees`
         ON `students`.`degree_id` = `degrees`.`id`

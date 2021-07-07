@@ -1,5 +1,5 @@
 <?php 
-    require_once __DIR__ . "/scripts/get-students.php"
+    require_once __DIR__ . "/scripts/get-students.php";
 ?>
 
 
@@ -13,33 +13,37 @@
     <title>Students</title>
 </head>
 <body>
-    <header class="text-center my-4">
+    <header class="text-center my-5">
         <h1>Elenco Studenti Iscritti al Corso di Laurea in Matematica</h1>
     </header>
 
     <main>
     <div class="container">
         <table class="table">
-            <thead>
+            <thead class="table-light">
                 <tr>
                     <?php 
                         $firstStudent = $students[0];
                         foreach($firstStudent as $key=>$value) {?>
                             <th> <?php echo $key; ?></th>
                     <?php }; ?> 
+                    <th>Libretto</th>
                 </tr>
             </thead>
-
             <tbody>
-                <tr>
-                    <td>
-                    </td>
-                
-                </tr>
+                <?php foreach($students as $student) {?>
+                    <tr>
+                        <?php foreach($student as $key=>$value) { ?>
+                            <td> <?php echo $value; ?></td>
+                            
+                        <?php };?>
+                        <td>
+                            <a href="booklet.php?id=<?php echo $student['id'];?>" class="btn btn-success">See</a>
+                        </td> 
+                    </tr>
+                <?php };  ?>
             </tbody>
-        
         </table>
-        <?php?>
     </div>
    
     
